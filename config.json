@@ -1,0 +1,36 @@
+{
+  "log_file": "logs/detector.log",
+  "report_dir": "data/reports",
+  "watch_interval_seconds": 1,
+  "high_risk_privileges": [
+    "SeDebugPrivilege",
+    "SeImpersonatePrivilege",
+    "SeAssignPrimaryTokenPrivilege",
+    "SeLoadDriverPrivilege",
+    "SeTcbPrivilege",
+    "SeTakeOwnershipPrivilege",
+    "SeBackupPrivilege",
+    "SeRestorePrivilege"
+  ],
+  "privilege_severity": {
+    "SeDebugPrivilege": "HIGH",
+    "SeImpersonatePrivilege": "HIGH",
+    "SeAssignPrimaryTokenPrivilege": "CRITICAL",
+    "SeLoadDriverPrivilege": "CRITICAL",
+    "SeTcbPrivilege": "CRITICAL",
+    "SeTakeOwnershipPrivilege": "HIGH",
+    "SeBackupPrivilege": "MEDIUM",
+    "SeRestorePrivilege": "MEDIUM"
+  },
+  "suspicious_paths": [
+    "\\Temp\\",
+    "\\AppData\\",
+    "\\Public\\",
+    "\\Downloads\\"
+  ],
+  "alert_destinations": [
+    "csv",
+    "eventlog"
+  ],
+  "teams_webhook_url": ""
+}

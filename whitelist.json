@@ -1,0 +1,45 @@
+{
+  "description": "Known-safe processes that legitimately hold high-risk privileges",
+  "rules": [
+    {
+      "name": "lsass.exe",
+      "path_must_contain": "C:\\Windows\\System32",
+      "reason": "Local Security Authority - holds SeDebug + SeImpersonate by design"
+    },
+    {
+      "name": "services.exe",
+      "path_must_contain": "C:\\Windows\\System32",
+      "reason": "Service Control Manager - holds SeAssignPrimaryToken"
+    },
+    {
+      "name": "winlogon.exe",
+      "path_must_contain": "C:\\Windows\\System32",
+      "reason": "Windows logon process - holds SeTcb"
+    },
+    {
+      "name": "svchost.exe",
+      "path_must_contain": "C:\\Windows\\System32",
+      "reason": "Service host - holds SeImpersonate for hosted services"
+    },
+    {
+      "name": "wininit.exe",
+      "path_must_contain": "C:\\Windows\\System32",
+      "reason": "Windows init process"
+    },
+    {
+      "name": "csrss.exe",
+      "path_must_contain": "C:\\Windows\\System32",
+      "reason": "Client/Server Runtime"
+    },
+    {
+      "name": "smss.exe",
+      "path_must_contain": "C:\\Windows\\System32",
+      "reason": "Session Manager"
+    },
+    {
+      "name": "MsMpEng.exe",
+      "path_must_contain": "Windows Defender",
+      "reason": "Windows Defender engine - needs SeDebug for scanning"
+    }
+  ]
+}
